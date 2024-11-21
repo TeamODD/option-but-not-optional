@@ -28,6 +28,9 @@ namespace OBNO.Player
             playerController.rigid.freezeRotation = true;
         }
 
+        /// <summary>
+        /// InputSystem으로 변경하기
+        /// </summary>
         private void Update()
         {
             if (Input.GetKey("a")) moveTarget = -1;
