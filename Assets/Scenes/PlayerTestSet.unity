@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePower: 0.5
-  jumpPower: 10
+  jumpPower: 5
   groundTag: Floor
 --- !u!50 &1701235635
 Rigidbody2D:
