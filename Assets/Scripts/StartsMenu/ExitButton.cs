@@ -10,7 +10,7 @@ public class ExitButton : MonoBehaviour
     public Sprite AC;
 
     [Header("텍스트")]
-    public GameObject text;
+    private GameObject text;
     private TMP_Text tmp_text;
 
     private SpriteRenderer _renderer;
@@ -19,7 +19,11 @@ public class ExitButton : MonoBehaviour
     private static void Initialize()
     {
         var exitButton = FindFirstObjectByType<ExitButton>();
-        if (exitButton == null) return;
+        if (exitButton == null)
+        {
+            return;
+        }
+
         exitButton._renderer = exitButton.GetComponent<SpriteRenderer>();
     }
 
@@ -29,7 +33,9 @@ public class ExitButton : MonoBehaviour
 
     private void Start()
     {
+        text = this.transform.Find("Text").gameObject;
         tmp_text = text.GetComponent<TMP_Text>();
+
         _renderer.sprite = BC;
         tmp_text.color = bColor;
     }

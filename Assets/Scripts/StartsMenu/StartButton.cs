@@ -11,7 +11,7 @@ namespace StartMenu
         public Sprite AC;
 
         [Header("텍스트")]
-        public GameObject text;
+        private GameObject text;
         private TMP_Text tmp_text;
 
         [Header("텍스트 컬러")]
@@ -24,13 +24,19 @@ namespace StartMenu
         private static void Initialize()
         {
             var startButton = FindFirstObjectByType<StartButton>();
-            if (startButton == null) return;
+            if (startButton == null)
+            {
+                return;
+            }
+
             startButton._renderer = startButton.GetComponent<SpriteRenderer>();
         }
 
         private void Start()
         {
+            text = this.transform.Find("Text").gameObject;
             tmp_text = text.GetComponent<TMP_Text>();
+
             _renderer.sprite = BC;
             tmp_text.color = bColor;
         }
@@ -60,7 +66,7 @@ namespace StartMenu
             text.transform.position += new Vector3(0, 0.05f, 0);
             _renderer.sprite = BC;
             tmp_text.color = bColor;
-            // 기능 작동 구현할 곳
+            // 기능 작동 구현할 곳 or 다른 코드에서 실행
         }
     }
 }
