@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +8,8 @@ namespace Settings
     public class SliderController : MonoBehaviour
     {
         [SerializeField] private Slider slider;
-        private SliderActionSo action;
         [SerializeField] private GameObject player;
+        private SliderActionSo action;
 
         private void Start()
         {
@@ -19,20 +18,19 @@ namespace Settings
 
         public void SetAction(SliderActionSo newAction)
         {
-            this.action = newAction;
+            action = newAction;
         }
-        
+
         private void OnSliderValueChanged(float value)
         {
             if (action != null)
             {
-                action.OnSliderValueChanged(value,player);
+                action.OnSliderValueChanged(value, player);
             }
             else
             {
                 Debug.LogWarning("No action set for this slider");
             }
         }
-
     }
 }

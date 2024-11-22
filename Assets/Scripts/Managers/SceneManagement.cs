@@ -10,6 +10,7 @@ namespace Managers
         public StageActionSo currentStageAction;
         [SerializeField] private GameObject player;
         [SerializeField] private SliderController[] sliders;
+        [SerializeField] private ToggleController[] toggles;
 
         private void Start()
         {
@@ -26,6 +27,11 @@ namespace Managers
             for (var i = 0; i < sliders.Length; i++)
             {
                 sliders[i].SetAction(currentStageAction.sliderActions[i]);
+            }
+
+            for (var i = 0; i < toggles.Length; i++)
+            {
+                toggles[i].SetAction(currentStageAction.toggleActions[i]);
             }
         }
 
