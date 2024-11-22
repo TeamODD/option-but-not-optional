@@ -8,7 +8,7 @@ namespace Managers
     public class SceneManagement : SingleTonManager<SceneManagement>
     {
         public StageActionSo currentStageAction;
-        [SerializeField] private GameObject _player;
+        [SerializeField] private GameObject player;
         [SerializeField] private SliderController[] sliders;
 
         private void Start()

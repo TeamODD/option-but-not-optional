@@ -4,23 +4,19 @@ namespace Settings
 {
     public class Setting : MonoBehaviour
     {
-        public GameObject SettingPanel;
-        private enum UIState
-        {
-            Open,
-            Close
-        }
-        private UIState _currentState = UIState.Close;
         private static Setting _instance;
+        public GameObject settingPanel;
+
+        private UIState _currentState = UIState.Close;
 
         private void Awake()
         {
-            if(_instance != null && _instance != this)
+            if (_instance != null && _instance != this)
             {
                 Destroy(gameObject);
                 return;
             }
-            
+
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -28,7 +24,13 @@ namespace Settings
         public void ToggleSettingPanel()
         {
             _currentState = _currentState == UIState.Open ? UIState.Close : UIState.Open;
-            SettingPanel.SetActive(_currentState == UIState.Open);
+            settingPanel.SetActive(_currentState == UIState.Open);
+        }
+
+        private enum UIState
+        {
+            Open,
+            Close
         }
     }
 }

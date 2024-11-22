@@ -10,7 +10,6 @@ namespace Settings.SubSettings
             if (value < 0.7f)
             {
                 Debug.Log("Resolution is under 0.7f : " + value);
-                
             }
         }
     }
