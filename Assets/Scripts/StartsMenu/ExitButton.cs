@@ -38,17 +38,16 @@ public class ExitButton : MonoBehaviour
     {
         _renderer.sprite = AC;
         text.transform.position -= new Vector3(0, 0.05f, 0);
-        return;
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit(); // 어플리케이션 종료
-#endif
     }
 
     private void OnMouseUp()
     {
         text.transform.position += new Vector3(0, 0.05f, 0);
         _renderer.sprite = BC;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // 어플리케이션 종료
+#endif
     }
 }
