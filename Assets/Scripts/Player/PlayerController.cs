@@ -4,7 +4,7 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("이동 값")] [SerializeField] private float movePower = 5f;
+        [Header("이동 값")][SerializeField] private float movePower = 5f;
 
         [SerializeField] private float jumpPower = 10f;
 
@@ -66,6 +66,12 @@ namespace Player
             {
                 _isJumping = false;
             }
+        }
+
+        public void ChangeMovePower(float value)
+        {
+            movePower = 10 * value;
+            Debug.LogFormat("MovePower : {}", movePower);
         }
 
         // 로딩 시 Rigidbody2D 가져오기
