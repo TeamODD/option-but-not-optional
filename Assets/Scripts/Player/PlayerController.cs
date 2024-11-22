@@ -15,6 +15,11 @@ namespace Player
         private int moveTarget;
         private Rigidbody2D rigid;
 
+        /// <summary>
+        ///     InputSystem으로 변경하기
+        /// </summary>
+        ///
+
         private void Awake()
         {
             rigid = GetComponent<Rigidbody2D>();
