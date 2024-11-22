@@ -1,32 +1,37 @@
-using UnityEditor;
+using TMPro;
 using UnityEngine;
+
 
 public class ExitButton : MonoBehaviour
 {
-    [Header("버튼 이미지")] public Sprite BC;
-
+    [Header("버튼 이미지")]
+    public Sprite BC;
     public Sprite HI;
     public Sprite AC;
 
-    [Header("텍스트")] public GameObject text;
+    [Header("텍스트")]
+    public GameObject text;
+    private TMP_Text tmp_text;
 
     private SpriteRenderer _renderer;
 
-    private void Start()
+    [RuntimeInitializeOnLoadMethod]
+    private static void Initialize()
     {
-        _renderer.sprite = BC;
+        var exitButton = FindFirstObjectByType<ExitButton>();
+        if (exitButton == null) return;
+        exitButton._renderer = exitButton.GetComponent<SpriteRenderer>();
     }
 
-    private void OnMouseDown()
+    [Header("텍스트 컬러")]
+    private Color bColor = new Color(0, 0, 0, 255);
+    private Color aColor = new Color(80f / 255f, 80f / 255f, 80f / 255f, 255);
+
+    private void Start()
     {
-        _renderer.sprite = AC;
-        text.transform.position -= new Vector3(0, 0.05f, 0);
-        return;
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-        Application.Quit(); // 어플리케이션 종료
-#endif
+        tmp_text = text.GetComponent<TMP_Text>();
+        _renderer.sprite = BC;
+        tmp_text.color = bColor;
     }
 
     private void OnMouseEnter()
@@ -39,21 +44,22 @@ public class ExitButton : MonoBehaviour
         _renderer.sprite = BC;
     }
 
+    private void OnMouseDown()
+    {
+        _renderer.sprite = AC;
+        text.transform.position -= new Vector3(0, 0.05f, 0);
+        text.transform.position -= new Vector3(0, 0.05f, 0);
+    }
+
     private void OnMouseUp()
     {
         text.transform.position += new Vector3(0, 0.05f, 0);
         _renderer.sprite = BC;
-    }
-
-    [RuntimeInitializeOnLoadMethod]
-    private static void Initialize()
-    {
-        var exitbutton = FindFirstObjectByType<ExitButton>();
-        if (exitbutton == null)
-        {
-            return;
-        }
-
-        exitbutton._renderer = exitbutton?.GetComponent<SpriteRenderer>();
+        tmp_text.color = bColor;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // 어플리케이션 종료
+#endif
     }
 }
