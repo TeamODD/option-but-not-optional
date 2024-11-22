@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
-namespace OBNO.Player
+namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
