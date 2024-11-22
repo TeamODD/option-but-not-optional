@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -24,6 +25,7 @@ namespace OBNO.Player
         private static void Initialize()
         {
             var playerController = Object.FindFirstObjectByType<PlayerController>();
+            if (playerController == null) return;
             playerController.rigid = playerController.GetComponent<Rigidbody2D>();
             playerController.rigid.freezeRotation = true;
         }
@@ -47,7 +49,6 @@ namespace OBNO.Player
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // 바닥에 닿았을 때 점프 상태 해제
             if (!_isJumping) return;
             if (collision.collider.CompareTag(groundTag)) _isJumping = false;
         }
