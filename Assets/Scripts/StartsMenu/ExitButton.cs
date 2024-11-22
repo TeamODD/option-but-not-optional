@@ -7,6 +7,9 @@ public class ExitButton : MonoBehaviour
     public Sprite HI;
     public Sprite AC;
 
+    [Header("텍스트")]
+    public GameObject text;
+
     private SpriteRenderer _renderer;
 
     [RuntimeInitializeOnLoadMethod]
@@ -34,10 +37,18 @@ public class ExitButton : MonoBehaviour
     private void OnMouseDown()
     {
         _renderer.sprite = AC;
+        text.transform.position -= new Vector3(0, 0.05f, 0);
+        return;
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit(); // 어플리케이션 종료
 #endif
+    }
+
+    private void OnMouseUp()
+    {
+        text.transform.position += new Vector3(0, 0.05f, 0);
+        _renderer.sprite = BC;
     }
 }
