@@ -25,12 +25,10 @@ namespace Managers
             {
                 player = GameObject.FindWithTag("Player");
             }
-
         }
 
         private void ApplyStageActions()
         {
-           
             if (stageActions == null || stageActions.Length <= _currentStageIndex ||
                 stageActions[_currentStageIndex] == null)
             {
@@ -61,7 +59,7 @@ namespace Managers
 
             player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
 
-            var playerPos = new Vector3(-6f, -1.89f, 0);
+            var playerPos = new Vector3(-7f, -1.89f, 0);
             var rigid = player.GetComponent<Rigidbody2D>();
             if (rigid != null)
             {

@@ -5,6 +5,7 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
+        private static PlayerController _instance;
         [Header("이동 값")] [SerializeField] private float movePower = 3f;
 
         [SerializeField] private float jumpPower = 10f;
@@ -26,6 +27,13 @@ namespace Player
         {
             animator = GetComponent<Animator>();
             rigid = GetComponent<Rigidbody2D>();
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
