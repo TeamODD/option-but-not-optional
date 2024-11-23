@@ -12,7 +12,7 @@ namespace Managers
         [SerializeField] private SliderController[] sliders;
         [SerializeField] private ToggleController[] toggles;
 
-        private int _currentStageIndex = 0;
+        private int _currentStageIndex;
 
 
         private void Start()
@@ -57,7 +57,7 @@ namespace Managers
             }
 
             var stageIndex = _currentStageIndex + 1;
-            
+
             SceneManager.LoadScene($"Scene{stageIndex}");
 
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -67,6 +67,9 @@ namespace Managers
         {
             ApplyStageActions();
             Debug.Log($"{_currentStageIndex}stage is Loaded");
+            var playerPos = new Vector3(-6f, -1.89f, 0);
+            // Instantiate(player, playerPos, Quaternion.identity); 소환안하고 그냥 위치만 바꿈. 
+            player.transform.position = playerPos;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }

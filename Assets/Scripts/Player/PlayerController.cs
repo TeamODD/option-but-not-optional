@@ -1,47 +1,45 @@
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("이동 값")][SerializeField] private float movePower = 5f;
+        [Header("이동 값")] [SerializeField] private float movePower = 5f;
 
         [SerializeField] private float jumpPower = 10f;
 
         [SerializeField] private string groundTag = "Floor";
 
-        [Header("내부 계산용")][SerializeField] private bool _isJumping;
+        [Header("내부 계산용")] [SerializeField] private bool _isJumping;
+        private Animator animator;
+        private bool landed;
 
         private int moveTarget;
         private Rigidbody2D rigid;
-        private Animator animator;
-        private bool landed;
 
 
         /// <summary>
         ///     InputSystem으로 변경하기
         /// </summary>
-        ///
-
         private void Awake()
         {
+            animator = GetComponent<Animator>();
             rigid = GetComponent<Rigidbody2D>();
         }
+
         private void Update()
         {
             if (Input.GetKey("a"))
             {
                 moveTarget = -1;
-                this.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
                 ControlMoveAnimation("Move");
             }
             else if (Input.GetKey("d"))
             {
                 moveTarget = 1;
-                this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 ControlMoveAnimation("Move");
             }
             else
@@ -50,7 +48,7 @@ namespace Player
                 ControlMoveAnimation("Idle");
             }
 
-            Vector2 moveVec = new Vector2(moveTarget, 0) * (movePower);
+            var moveVec = new Vector2(moveTarget, 0) * movePower;
             moveVec.y = rigid.linearVelocityY;
             rigid.linearVelocity = moveVec;
 
@@ -72,23 +70,6 @@ namespace Player
             landed = false;
         }
 
-        private void ControlMoveAnimation(string target)
-        {
-            if (_isJumping == true)
-            {
-                if (landed == true && target == "Move")
-                {
-                    animator.SetTrigger(target);
-                    StopAllCoroutines();
-                    _isJumping = false;
-                }
-            }
-            else
-            {
-                animator.SetTrigger(target);
-            }
-        }
-
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (!_isJumping)
@@ -102,6 +83,23 @@ namespace Player
                 animator.SetTrigger("Landing");
                 landed = true;
                 StartCoroutine(LandingAnimation());
+            }
+        }
+
+        private void ControlMoveAnimation(string target)
+        {
+            if (_isJumping)
+            {
+                if (landed && target == "Move")
+                {
+                    animator.SetTrigger(target);
+                    StopAllCoroutines();
+                    _isJumping = false;
+                }
+            }
+            else
+            {
+                animator.SetTrigger(target);
             }
         }
 
