@@ -12,6 +12,7 @@ namespace Managers
         [SerializeField] private SliderController[] sliders;
         [SerializeField] private ToggleController[] toggles;
 
+
         private void Start()
         {
             ApplyStageActions();
