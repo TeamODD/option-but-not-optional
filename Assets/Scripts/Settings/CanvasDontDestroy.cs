@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Settings
 {
-    public class SettingPanel : MonoBehaviour
+    public class CanvasDontDestroy : MonoBehaviour
     {
-        private static SettingPanel _instance;
+        private static CanvasDontDestroy _instance;
 
         private void Awake()
         {

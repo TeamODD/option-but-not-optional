@@ -4,7 +4,6 @@ namespace Settings
 {
     public class Setting : MonoBehaviour
     {
-        private static Setting _instance;
         public GameObject settingPanel;
 
         [SerializeField] private GameObject graphicBox;
@@ -16,18 +15,6 @@ namespace Settings
         private SettingType _currentSettingType = SettingType.Graphic;
 
         private UIState _currentState = UIState.Close;
-
-        private void Awake()
-        {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
 
         public void ToggleSettingPanel()
         {
