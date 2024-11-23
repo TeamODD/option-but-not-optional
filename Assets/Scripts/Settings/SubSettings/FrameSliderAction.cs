@@ -1,10 +1,22 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Settings.SubSettings
 {
     public class FrameSliderAction : SliderActionSo
     {
-        public GameObject bullet;
+        private List<GameObject> bullet;
+
+        private void Start()
+        {
+            FrameRateBullet[] bullets = FindObjectsByType<FrameRateBullet>(FindObjectsSortMode.None);
+            bullet = new List<GameObject>();
+
+            foreach (var item in bullets)
+            {
+                bullet.Add(item.gameObject);
+            }
+        }
 
         public override void OnSliderValueChanged(float value, GameObject player)
         {
@@ -18,6 +30,10 @@ namespace Settings.SubSettings
             // {
             //     bullet.GetComponent<Bullet>().frame = value;
             // }
+            for (int i = 0; i < bullet.Count; i++)
+            {
+                bullet[i].GetComponent<FrameRateBullet>().ChangeMovePower(value);
+            }
         }
     }
 }

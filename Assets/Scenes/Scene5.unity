@@ -5630,7 +5630,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1412805436272411128, guid: 9823522d5ab0d47f888d6c5b61bb1760, type: 3}
       propertyPath: m_Name
-      value: Bullet
+      value: UpBullet
       objectReference: {fileID: 0}
     - target: {fileID: 5160507741004060163, guid: 9823522d5ab0d47f888d6c5b61bb1760, type: 3}
       propertyPath: m_LocalPosition.x

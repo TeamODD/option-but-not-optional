@@ -5,7 +5,6 @@ public class FrameRateBullet : MonoBehaviour
 {
     [Header("이동 방향")][SerializeField] private moveDirection direction;
     [Header("감지할 태그")][SerializeField] private string wallTag = "Floor";
-    [Header("복사할 프리팹")][SerializeField] private GameObject prefab;
 
     private float movePower = 5f;
     private Vector2 moveVector;
@@ -48,9 +47,13 @@ public class FrameRateBullet : MonoBehaviour
         Debug.Log("enter");
         if (collision.collider.CompareTag(wallTag))
         {
-            Instantiate(prefab, startPos, this.transform.rotation);
-            Destroy(this.gameObject);
+            this.transform.position = startPos;
         }
+    }
+
+    public void ChangeMovePower(float value)
+    {
+        this.movePower = 10 * value;
     }
 
     private enum moveDirection
