@@ -5,13 +5,13 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("이동 값")][SerializeField] private float movePower = 3f;
+        [Header("이동 값")] [SerializeField] private float movePower = 3f;
 
         [SerializeField] private float jumpPower = 10f;
 
         [SerializeField] private string groundTag = "Floor";
 
-        [Header("내부 계산용")][SerializeField] private bool _isJumping;
+        [Header("내부 계산용")] [SerializeField] private bool _isJumping;
         private Animator animator;
         private bool landed;
 
@@ -115,7 +115,8 @@ namespace Player
         public void ChangeMovePower(float value)
         {
             movePower = 6 * value;
-            Debug.Log("MovePower : " + movePower);
+            Debug.LogError("MovePower : " + movePower);
+            Debug.LogWarning(rigid.linearVelocity);
         }
 
         // 로딩 시 Rigidbody2D 가져오기

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bf95f26d74974428b87595b8a02e24e3
+guid: 3c68c8d82d3d20443b4831ef11faae43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8859086082192238917
-    second: Jump_landing2_0
+      213: -1506199975618147060
+    second: spit_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_landing2_0
+      name: spit_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 57
-        height: 64
+        x: 1
+        y: 1
+        width: 35
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 549eca3badbc1fa70800000000000000
-      internalID: 8859086082192238917
+      spriteID: c0d04943a17e81be0800000000000000
+      internalID: -1506199975618147060
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Jump_landing2_0: 8859086082192238917
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
