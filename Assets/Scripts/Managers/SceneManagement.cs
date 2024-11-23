@@ -19,13 +19,18 @@ namespace Managers
             ApplyStageActions();
         }
 
-        private void ApplyStageActions()
+        private void Update()
         {
             if (player == null)
             {
                 player = GameObject.FindWithTag("Player");
             }
 
+        }
+
+        private void ApplyStageActions()
+        {
+           
             if (stageActions == null || stageActions.Length <= _currentStageIndex ||
                 stageActions[_currentStageIndex] == null)
             {

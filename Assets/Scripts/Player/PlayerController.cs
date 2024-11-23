@@ -26,6 +26,7 @@ namespace Player
         {
             animator = GetComponent<Animator>();
             rigid = GetComponent<Rigidbody2D>();
+            DontDestroyOnLoad(gameObject);
         }
 
         private void Update()
