@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      black_rabbit_0: 2163278256223414025
+      black_rabbit_1: 5443621693919933846
+      black_rabbit_2: 5775745986056921938
+      black_rabbit_3: -5312362699894091103
+      black_rabbit_4: -4802552536136223042
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,8 +5,7 @@ public class FrameRateBullet : MonoBehaviour
 {
     [Header("이동 방향")][SerializeField] private moveDirection direction;
     [Header("감지할 태그")][SerializeField] private string wallTag = "Floor";
-
-    private float movePower = 5f;
+    [Header("속도")][SerializeField] private float movePower = 5f;
     private Vector2 moveVector;
     private Vector3 startPos;
     private Rigidbody2D _rigid;
@@ -48,6 +47,10 @@ public class FrameRateBullet : MonoBehaviour
         if (collision.collider.CompareTag(wallTag))
         {
             this.transform.position = startPos; _rigid.AddForce(moveVector * movePower, ForceMode2D.Impulse);
+        }
+        if (collision.collider.CompareTag("Player"))
+        {
+            // 스테이지 초기화
         }
     }
 
