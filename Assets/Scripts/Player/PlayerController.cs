@@ -105,7 +105,7 @@ namespace Player
 
         private IEnumerator LandingAnimation()
         {
-            yield return new WaitForSecondsRealtime(0.2f);
+            yield return new WaitForSecondsRealtime(0.3f);
 
             _isJumping = false;
         }
