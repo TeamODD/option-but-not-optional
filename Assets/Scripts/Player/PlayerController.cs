@@ -50,7 +50,9 @@ namespace Player
                 ControlMoveAnimation("Idle");
             }
 
-            transform.position += new Vector3(moveTarget, 0, 0) * (movePower * Time.fixedDeltaTime);
+            Vector2 moveVec = new Vector2(moveTarget, 0) * (movePower);
+            moveVec.y = rigid.linearVelocityY;
+            rigid.linearVelocity = moveVec;
 
             if (_isJumping)
             {
@@ -105,14 +107,14 @@ namespace Player
 
         private IEnumerator LandingAnimation()
         {
-            yield return new WaitForSecondsRealtime(0.3f);
+            yield return new WaitForSecondsRealtime(0.2f);
 
             _isJumping = false;
         }
 
         public void ChangeMovePower(float value)
         {
-            movePower = 10 * value;
+            movePower = 6 * value;
             Debug.LogFormat("MovePower : {}", movePower);
         }
 
