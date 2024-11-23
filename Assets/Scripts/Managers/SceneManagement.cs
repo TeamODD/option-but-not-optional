@@ -7,10 +7,13 @@ namespace Managers
 {
     public class SceneManagement : SingleTonManager<SceneManagement>
     {
-        public StageActionSo currentStageAction;
+        public StageActionSo[] stageActions;
         [SerializeField] private GameObject player;
         [SerializeField] private SliderController[] sliders;
         [SerializeField] private ToggleController[] toggles;
+
+        private int _currentStageIndex = 0;
+
 
         private void Start()
         {
@@ -19,10 +22,19 @@ namespace Managers
 
         private void ApplyStageActions()
         {
-            if (currentStageAction == null)
+            if (stageActions == null || stageActions.Length <= _currentStageIndex ||
+                stageActions[_currentStageIndex] == null)
+            {
+                Debug.LogWarning("No valid stage action found for the current stage index.");
+                return;
+            }
+
+            if (stageActions == null)
             {
                 return;
             }
+
+            var currentStageAction = stageActions[_currentStageIndex];
 
             for (var i = 0; i < sliders.Length; i++)
             {
@@ -37,7 +49,25 @@ namespace Managers
 
         public void LoadNextStage()
         {
-            SceneManager.LoadScene("Scene2");
+            _currentStageIndex++;
+
+            if (_currentStageIndex >= stageActions.Length)
+            {
+                Debug.LogWarning("No more stages to load. Restarting from the first stage.");
+            }
+
+            var stageIndex = _currentStageIndex + 1;
+            
+            SceneManager.LoadScene($"Scene{stageIndex}");
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            ApplyStageActions();
+            Debug.Log($"{_currentStageIndex}stage is Loaded");
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 }

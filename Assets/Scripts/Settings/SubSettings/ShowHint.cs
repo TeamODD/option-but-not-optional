@@ -21,14 +21,12 @@ namespace Settings.SubSettings
             var canvas = GameObject.Find("Canvas"); // Canvas를 Hierarchy에서 찾음
             if (canvas == null)
             {
-                Debug.LogError("Canvas 오브젝트를 찾을 수 없습니다.");
                 return;
             }
 
             var hintText = canvas.transform.Find("HintText")?.GetComponent<TextMeshProUGUI>();
             if (hintText == null)
             {
-                Debug.LogError("'HintText' 오브젝트를 찾거나 TextMeshProUGUI 컴포넌트를 가져올 수 없습니다.");
                 return;
             }
 
