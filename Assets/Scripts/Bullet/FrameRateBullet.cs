@@ -9,6 +9,7 @@ public class FrameRateBullet : MonoBehaviour
     private Vector2 moveVector;
     private Vector3 startPos;
     private Rigidbody2D _rigid;
+    public bool alpacacaAlive = true;
 
     private void Awake()
     {
@@ -46,17 +47,27 @@ public class FrameRateBullet : MonoBehaviour
         Debug.Log("enter");
         if (collision.collider.CompareTag(wallTag))
         {
-            this.transform.position = startPos; _rigid.AddForce(moveVector * movePower, ForceMode2D.Impulse);
+            if (!alpacacaAlive) Destroy(this.gameObject);
+            _rigid.linearVelocity = Vector2.zero;
+            this.transform.position = startPos;
+            _rigid.AddForce(moveVector * movePower, ForceMode2D.Impulse);
         }
         if (collision.collider.CompareTag("Player"))
         {
-            // 스테이지 초기화
+            // 재시작 
         }
     }
 
     public void ChangeMovePower(float value)
     {
         this.movePower = 10 * value;
+        _rigid.linearVelocity = Vector2.zero;
+        _rigid.AddForce(moveVector * movePower, ForceMode2D.Impulse);
+    }
+
+    public void DestroyThis()
+    {
+        Destroy(this.gameObject);
     }
 
     private enum moveDirection
