@@ -7,13 +7,14 @@ using UnityEngine;
 public class Alpacapaca : MonoBehaviour
 {
     [Header("프리팹")] public GameObject leftBullet;
+    [Header("발사할 총알 수")] public int bulletNumber;
     private List<GameObject> bullets;
 
-    private Vector3 startPos = new Vector3(3.69f, -2.72f, 0);
+    private Vector3 startPos = new Vector3(3.69f, -1.27f, 0);
 
     private void Start()
     {
-        StartCoroutine(FireNBullet(2));
+        StartCoroutine(FireNBullet(bulletNumber));
     }
 
     private IEnumerator FireNBullet(int number)

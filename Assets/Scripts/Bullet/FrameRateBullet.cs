@@ -65,6 +65,20 @@ public class FrameRateBullet : MonoBehaviour
         _rigid.AddForce(moveVector * movePower, ForceMode2D.Impulse);
     }
 
+    public void ColliderOnOff(bool On)
+    {
+        if (On == true)
+        {
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+        }
+        else
+        {
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        }
+    }
+
     public void DestroyThis()
     {
         Destroy(this.gameObject);
