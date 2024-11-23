@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      alpaca_black2_0: -8074158419413702418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
