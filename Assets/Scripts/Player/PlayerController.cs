@@ -113,7 +113,7 @@ namespace Player
         public void ChangeMovePower(float value)
         {
             movePower = 6 * value;
-            Debug.LogFormat("MovePower : {}", movePower);
+            Debug.Log("MovePower : " + movePower);
         }
 
         // 로딩 시 Rigidbody2D 가져오기

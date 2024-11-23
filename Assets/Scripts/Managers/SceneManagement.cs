@@ -5,27 +5,30 @@ using UnityEngine.SceneManagement;
 
 namespace Managers
 {
-    public class SceneManagement : SingleTonManager<SceneManagement>
+    public class SceneManagement : MonoBehaviour
     {
         public StageActionSo[] stageActions;
         [SerializeField] private GameObject player;
         [SerializeField] private SliderController[] sliders;
         [SerializeField] private ToggleController[] toggles;
-
         private int _currentStageIndex;
 
-
-        private void Start()
+        private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             ApplyStageActions();
         }
 
         private void ApplyStageActions()
         {
+            if (player == null)
+            {
+                player = GameObject.FindWithTag("Player");
+            }
+
             if (stageActions == null || stageActions.Length <= _currentStageIndex ||
                 stageActions[_currentStageIndex] == null)
             {
-                Debug.LogWarning("No valid stage action found for the current stage index.");
                 return;
             }
 
@@ -36,6 +39,8 @@ namespace Managers
 
             var currentStageAction = stageActions[_currentStageIndex];
 
+            Debug.LogError(currentStageAction.GetType());
+
             for (var i = 0; i < sliders.Length; i++)
             {
                 sliders[i].SetAction(currentStageAction.sliderActions[i]);
@@ -45,6 +50,22 @@ namespace Managers
             {
                 toggles[i].SetAction(currentStageAction.toggleActions[i]);
             }
+
+            //씬 로드 후 호출해야돼 
+
+
+            player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+
+            var playerPos = new Vector3(-6f, -1.89f, 0);
+            var rigid = player.GetComponent<Rigidbody2D>();
+            if (rigid != null)
+            {
+                rigid.linearVelocity = Vector2.zero; // 속도 초기화
+                rigid.position = playerPos; // Rigidbody2D의 위치 설정
+            }
+
+            player.transform.position = playerPos;
+            Debug.Log($"Player repositioned to {player.transform.position}");
         }
 
         public void LoadNextStage()
@@ -65,11 +86,11 @@ namespace Managers
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            Debug.LogWarning("OnSceneLoaded");
             ApplyStageActions();
             Debug.Log($"{_currentStageIndex}stage is Loaded");
-            var playerPos = new Vector3(-6f, -1.89f, 0);
+
             // Instantiate(player, playerPos, Quaternion.identity); 소환안하고 그냥 위치만 바꿈. 
-            player.transform.position = playerPos;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }

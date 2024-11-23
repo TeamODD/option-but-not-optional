@@ -490,15 +490,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1685518437222949943, guid: fa58fce18259f4d73a0bb293ef6eb8e0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1685518437222949943, guid: fa58fce18259f4d73a0bb293ef6eb8e0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1685518437222949943, guid: fa58fce18259f4d73a0bb293ef6eb8e0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1685518437222949943, guid: fa58fce18259f4d73a0bb293ef6eb8e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 365370010}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!1 &403764160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 568987404}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!1 &599650529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 920205738}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!114 &920205738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3311,7 +3311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1094917085}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!1 &1130098861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4266,7 +4266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1472164630}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!1 &1483316347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4371,7 +4371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1483316349}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!1 &1506739625
 GameObject:
   m_ObjectHideFlags: 0
@@ -6167,7 +6167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 1906411922}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!1 &1912035082
 GameObject:
   m_ObjectHideFlags: 0
@@ -6483,7 +6483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1921439757}
-  player: {fileID: 0}
+  player: {fileID: 732122557}
 --- !u!1 &1927000709
 GameObject:
   m_ObjectHideFlags: 0
