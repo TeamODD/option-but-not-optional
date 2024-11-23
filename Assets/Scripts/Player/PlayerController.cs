@@ -1,4 +1,7 @@
+using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Player
 {
@@ -10,10 +13,13 @@ namespace Player
 
         [SerializeField] private string groundTag = "Floor";
 
-        [Header("내부 계산용")] private bool _isJumping;
+        [Header("내부 계산용")][SerializeField] private bool _isJumping;
 
         private int moveTarget;
         private Rigidbody2D rigid;
+        private Animator animator;
+        private bool landed;
+
 
         /// <summary>
         ///     InputSystem으로 변경하기
@@ -29,14 +35,19 @@ namespace Player
             if (Input.GetKey("a"))
             {
                 moveTarget = -1;
+                this.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                ControlMoveAnimation("Move");
             }
             else if (Input.GetKey("d"))
             {
                 moveTarget = 1;
+                this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                ControlMoveAnimation("Move");
             }
             else
             {
                 moveTarget = 0;
+                ControlMoveAnimation("Idle");
             }
 
             transform.position += new Vector3(moveTarget, 0, 0) * (movePower * Time.fixedDeltaTime);
@@ -51,8 +62,29 @@ namespace Player
                 return;
             }
 
+            animator.ResetTrigger("Move");
+            animator.ResetTrigger("Idle");
+            animator.SetTrigger("Jump");
             rigid.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
             _isJumping = true;
+            landed = false;
+        }
+
+        private void ControlMoveAnimation(string target)
+        {
+            if (_isJumping == true)
+            {
+                if (landed == true && target == "Move")
+                {
+                    animator.SetTrigger(target);
+                    StopAllCoroutines();
+                    _isJumping = false;
+                }
+            }
+            else
+            {
+                animator.SetTrigger(target);
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -64,8 +96,18 @@ namespace Player
 
             if (collision.collider.CompareTag(groundTag))
             {
-                _isJumping = false;
+                animator.ResetTrigger("Jump");
+                animator.SetTrigger("Landing");
+                landed = true;
+                StartCoroutine(LandingAnimation());
             }
+        }
+
+        private IEnumerator LandingAnimation()
+        {
+            yield return new WaitForSecondsRealtime(0.3f);
+
+            _isJumping = false;
         }
 
         public void ChangeMovePower(float value)
@@ -86,6 +128,8 @@ namespace Player
 
             playerController.rigid = playerController.GetComponent<Rigidbody2D>();
             playerController.rigid.freezeRotation = true;
+
+            playerController.animator = playerController.GetComponent<Animator>();
         }
     }
 }
