@@ -47,7 +47,7 @@ public class FrameRateBullet : MonoBehaviour
         Debug.Log("enter");
         if (collision.collider.CompareTag(wallTag))
         {
-            this.transform.position = startPos;
+            this.transform.position = startPos; _rigid.AddForce(moveVector * movePower, ForceMode2D.Impulse);
         }
     }
 
