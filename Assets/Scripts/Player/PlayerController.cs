@@ -93,6 +93,7 @@ namespace Player
             {
                 if (landed && target == "Move")
                 {
+                    animator.ResetTrigger("Landing");
                     animator.SetTrigger(target);
                     StopAllCoroutines();
                     _isJumping = false;
