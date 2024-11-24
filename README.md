@@ -1,4 +1,4 @@
-# Opiton, But not Optional
+# ![Idle1](https://github.com/user-attachments/assets/f75eafcd-107e-4656-99e5-bc6f7f096c41) Opiton, But not Optional 
 
 TeamODD 2024년 2차 꿀잼
 
