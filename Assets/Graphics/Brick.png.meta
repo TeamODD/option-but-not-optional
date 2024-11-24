@@ -105,19 +105,19 @@ TextureImporter:
         \u110C\u1166\u1100\u1165 \u1107\u1167\u11A8\u1103\u1169\u11AF_0"
       rect:
         serializedVersion: 2
-        x: 239
-        y: 15
-        width: 187
-        height: 188
+        x: 242
+        y: 17
+        width: 182
+        height: 182
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 12414517d5f5d85a0800000000000000
+      spriteID: 64a7470f3ff484e6c9d93fa06668cd0c
       internalID: -6517448230797306847
       vertices: []
       indices: 
@@ -127,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f66bff5706e464c43b5361cfe520c133
     internalID: 0
     vertices: []
     indices: 
