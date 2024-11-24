@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: Scene5
   m_EditorClassIdentifier: 
   sliderActions:
+  - {fileID: 11400000, guid: 8f42d3498b3564500a5bc3bc565fdfdc, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 8f42d3498b3564500a5bc3bc565fdfdc, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  toggleActions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

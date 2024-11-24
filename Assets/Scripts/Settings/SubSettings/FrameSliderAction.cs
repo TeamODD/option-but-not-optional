@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace Settings.SubSettings
 {
+    [CreateAssetMenu(fileName = "FrameSliderAction", menuName = "FrameSliderAction")]
     public class FrameSliderAction : SliderActionSo
     {
         private List<GameObject> bullet;
 
-        private void Start()
+        public override void OnSliderValueChanged(float value, GameObject player)
         {
             FrameRateBullet[] bullets = FindObjectsByType<FrameRateBullet>(FindObjectsSortMode.None);
             bullet = new List<GameObject>();
@@ -16,10 +17,6 @@ namespace Settings.SubSettings
             {
                 bullet.Add(item.gameObject);
             }
-        }
-
-        public override void OnSliderValueChanged(float value, GameObject player)
-        {
             //적 총알의 프레임을 조절한다.
             //value가 0.5f 이하일 때 총알의 발사 속도를 낮춘다.
             // if (value < 0.5f)

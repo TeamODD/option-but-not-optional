@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 5925149370519152537}
   - component: {fileID: 5835613717460989737}
   - component: {fileID: 8344536081056714261}
-  - component: {fileID: 900843370252312323}
   - component: {fileID: 7460628931101364003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -104,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85faa3e9e69ff4ae0a63d381fbc6def0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movePower: 0.5
+  movePower: 3
   jumpPower: 5
   groundTag: Floor
   _isJumping: 0
@@ -181,14 +180,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!81 &900843370252312323
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115644622961017629}
-  m_Enabled: 1
 --- !u!95 &7460628931101364003
 Animator:
   serializedVersion: 7
