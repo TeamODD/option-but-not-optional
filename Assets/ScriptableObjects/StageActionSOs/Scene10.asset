@@ -15,7 +15,7 @@ MonoBehaviour:
   sliderActions:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f2568e35631727d45af2af82e17bd5a8, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
