@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Scene1
   m_EditorClassIdentifier: 
   sliderActions:
-  - {fileID: 11400000, guid: 5edabc08d577e094da71f96ebbcfeeb7, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 4538a2233a83d5d4084507f73ef0df34, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   toggleActions:
-  - {fileID: 11400000, guid: 5e0f6de3ee9708e4cb8c01aada4aac97, type: 2}
-  - {fileID: 11400000, guid: 5e0f6de3ee9708e4cb8c01aada4aac97, type: 2}
-  - {fileID: 11400000, guid: 5e0f6de3ee9708e4cb8c01aada4aac97, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

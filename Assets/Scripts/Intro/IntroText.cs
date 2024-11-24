@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroText : MonoBehaviour
 {
@@ -46,6 +47,6 @@ public class IntroText : MonoBehaviour
         text.DOFade(1, 1f);
         yield return new WaitForSeconds(5);
         text.DOFade(0, 1f);
-        // 스테이지 시작
+        SceneManager.LoadScene("Scene1");
     }
 }

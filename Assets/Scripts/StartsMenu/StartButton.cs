@@ -55,7 +55,7 @@ namespace StartMenu
             _renderer.sprite = BC;
             tmp_text.color = bColor;
             // 기능 작동 구현할 곳 or 다른 코드에서 실행
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("IntroScene");
         }
 
         [RuntimeInitializeOnLoadMethod]
