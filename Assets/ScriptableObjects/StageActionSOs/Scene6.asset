@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 38ec3a2baabb22643b4b04e5c4ed15fd, type: 2}
   - {fileID: 0}
   toggleActions:
   - {fileID: 0}
