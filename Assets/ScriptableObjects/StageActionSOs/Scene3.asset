@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene3
   m_EditorClassIdentifier: 
   sliderActions:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 417118f1b5b51440494b16d5fc965d53, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
