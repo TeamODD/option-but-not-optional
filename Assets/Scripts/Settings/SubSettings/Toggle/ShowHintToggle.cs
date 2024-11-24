@@ -1,10 +1,10 @@
 using TMPro;
 using UnityEngine;
 
-namespace Settings.SubSettings
+namespace Settings.SubSettings.Toggle
 {
     [CreateAssetMenu(fileName = "ShowHint", menuName = "ShowHint")]
-    public class ShowHint : ToggleActionSo
+    public class ShowHintToggle : ToggleActionSo
     {
         //public TextMeshProUGUI hintText;
         //ScriptableObject는 씬에 종속되지않는 데이터 Asset인데 .. 
@@ -16,7 +16,6 @@ namespace Settings.SubSettings
                 Debug.LogError("Player GameObject가 null입니다.");
                 return;
             }
-            //Find 쓰기 싫었는데 아 내일 코드 다시봐야겠다. 
 
             var canvas = GameObject.Find("Canvas"); // Canvas를 Hierarchy에서 찾음
             if (canvas == null)

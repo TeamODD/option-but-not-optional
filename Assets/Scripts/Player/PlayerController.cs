@@ -6,23 +6,19 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         private static PlayerController _instance;
-        [Header("이동 값")][SerializeField] private float movePower = 3f;
+        [Header("이동 값")] [SerializeField] private float movePower = 3f;
 
         [SerializeField] private float jumpPower = 10f;
 
         [SerializeField] private string groundTag = "Floor";
 
-        [Header("내부 계산용")][SerializeField] private bool _isJumping;
+        [Header("내부 계산용")] [SerializeField] private bool _isJumping;
         private Animator animator;
         private bool landed;
 
         private int moveTarget;
         private Rigidbody2D rigid;
 
-
-        /// <summary>
-        ///     InputSystem으로 변경하기
-        /// </summary>
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -122,8 +118,15 @@ namespace Player
 
         public void ChangeMovePower(float by)
         {
-            if (by <= 0.5f) movePower = 6 * by;
-            else movePower = 15 * by;
+            if (by <= 0.5f)
+            {
+                movePower = 6 * by;
+            }
+            else
+            {
+                movePower = 15 * by;
+            }
+
             Debug.LogError("MovePower : " + movePower);
             Debug.LogWarning(rigid.linearVelocity);
         }

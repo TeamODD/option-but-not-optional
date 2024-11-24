@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Settings.SubSettings
+namespace Settings.SubSettings.Slider
 {
     [CreateAssetMenu(fileName = "SizeControlAction", menuName = "SizeControlAction")]
     public class SizeControlAction : SliderActionSo

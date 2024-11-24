@@ -11,6 +11,7 @@ namespace Settings.SubSettings.Slider
             if (_nextStage != null)
             {
                 _nextStage.transform.position -= new Vector3(15 * value, 0, 0);
+                Debug.Log("GotoNextStage!");
             }
             else
             {

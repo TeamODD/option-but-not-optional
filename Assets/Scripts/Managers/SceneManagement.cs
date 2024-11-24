@@ -12,11 +12,13 @@ namespace Managers
         [SerializeField] private SliderController[] sliders;
         [SerializeField] private ToggleController[] toggles;
         private int _currentStageIndex;
+        private Vector3 _playerInitialScale;
 
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
             ApplyStageActions();
+            _playerInitialScale = player.transform.localScale;
         }
 
         private void Update()
@@ -24,6 +26,14 @@ namespace Managers
             if (player == null)
             {
                 player = GameObject.FindWithTag("Player");
+            }
+        }
+
+        private void ResetPlayerSize()
+        {
+            if (player != null)
+            {
+                player.transform.localScale = _playerInitialScale;
             }
         }
 
@@ -90,7 +100,9 @@ namespace Managers
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             Debug.LogWarning("OnSceneLoaded");
+
             ApplyStageActions();
+            ResetPlayerSize();
             Debug.Log($"{_currentStageIndex}stage is Loaded");
 
             // Instantiate(player, playerPos, Quaternion.identity); 소환안하고 그냥 위치만 바꿈. 
