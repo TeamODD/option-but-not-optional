@@ -5,7 +5,7 @@ namespace Enemys.Rabbits
 {
     public class WhiteRabbit : MonoBehaviour
     {
-        public bool checkVolume = true;
+        public static bool checkVolume = true;
         private Animator _animator;
         private BoxCollider2D _boxCollider2D;
 

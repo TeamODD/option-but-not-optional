@@ -1,7 +1,7 @@
 using Enemys.Rabbits;
 using UnityEngine;
 
-namespace Settings.SubSettings
+namespace Settings.SubSettings.Slider
 {
     [CreateAssetMenu(fileName = "RabbitSliderAction", menuName = "RabbitSliderAction")]
     public class RabbitSliderAction : SliderActionSo
@@ -11,18 +11,24 @@ namespace Settings.SubSettings
         private void Awake()
         {
             _whiteRabbit = FindFirstObjectByType<WhiteRabbit>();
+            if (_whiteRabbit == null)
+            {
+                Debug.LogError("WhiteRabbit not found in the scene!");
+            }
         }
 
         public override void OnSliderValueChanged(float value, GameObject player)
         {
             if (value < 0.3f)
             {
-                _whiteRabbit.checkVolume = false;
+                WhiteRabbit.checkVolume = true;
             }
             else
             {
-                _whiteRabbit.checkVolume = true;
+                WhiteRabbit.checkVolume = false;
             }
+
+            Debug.Log($"RabbitSliderAction: checkVolume set to {value < 0.3f}");
         }
     }
 }
