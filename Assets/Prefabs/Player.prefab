@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePower: 3
-  jumpPower: 5
+  jumpPower: 8
   groundTag: Floor
   _isJumping: 0
 --- !u!61 &5835613717460989737

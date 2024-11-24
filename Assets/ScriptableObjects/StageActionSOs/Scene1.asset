@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderActions:
   - {fileID: 11400000, guid: 5edabc08d577e094da71f96ebbcfeeb7, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4538a2233a83d5d4084507f73ef0df34, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
