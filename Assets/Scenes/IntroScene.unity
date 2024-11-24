@@ -271,7 +271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 1355379128}
   - component: {fileID: 1355379127}
   - component: {fileID: 1355379126}
+  - component: {fileID: 1355379129}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -336,7 +337,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD14D\uC2A4\uD2B8 \uB730"
+  m_text: " \uCCA0\uB85C\uB41C \uD1B1\uB2C8\uBC14\uD034? \uBB54\uAC00 \uC798\uBABB\uB418\uC5C8\uB294\uB370?\n\uC2E0\uB2D8
+    \uC774\uAC70 \uBB34\uAE30 \uBC30\uC1A1\uC624\uB958 \uB0AC\uB294\uB370\uC694?
+    \uC5B4\uB77C... \uC5EC\uC790\uB294 \uD56D\uC758\uB97C \uD574\uBCF4\uC9C0\uB9CC...
+    \uC544\uC26C\uC6B4\uAC70\uC8E0. \uC798\uD558\uACA0\uC8E0 \uBB50."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f58a28e94adda4c188af89cc2be1c4fd, type: 2}
   m_sharedMaterial: {fileID: 5923017932187955720, guid: f58a28e94adda4c188af89cc2be1c4fd, type: 2}
@@ -363,8 +367,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0
-  m_fontSizeBase: 0
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -464,8 +468,8 @@ RectTransform:
   m_GameObject: {fileID: 1355379124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -474,6 +478,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1355379129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355379124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565c6f62f99fb4af4aac08511896b880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1768697229
 GameObject:
   m_ObjectHideFlags: 0
