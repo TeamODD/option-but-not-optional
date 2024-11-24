@@ -33,7 +33,6 @@ public class FrameRateBullet : MonoBehaviour
                 Debug.LogErrorFormat("{}오브젝트의 방향이 지정되지 않았습니다.", this.name);
                 break;
         }
-
     }
 
     private void Start()
@@ -70,7 +69,7 @@ public class FrameRateBullet : MonoBehaviour
         if (On == true)
         {
             this.GetComponent<BoxCollider2D>().enabled = true;
-            this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+            this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
         else
         {

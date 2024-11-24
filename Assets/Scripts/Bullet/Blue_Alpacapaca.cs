@@ -8,12 +8,14 @@ public class Alpacapaca : MonoBehaviour
 {
     [Header("프리팹")] public GameObject leftBullet;
     [Header("발사할 총알 수")] public int bulletNumber;
+    [Header("발사 사이 텀")] public float bulletTime;
     private List<GameObject> bullets;
 
-    private Vector3 startPos = new Vector3(3.69f, -1.27f, 0);
+    private Vector3 startPos;
 
     private void Start()
     {
+        startPos = this.transform.position + new Vector3(-0.7f, 0.48f, 0);
         StartCoroutine(FireNBullet(bulletNumber));
     }
 
@@ -22,7 +24,7 @@ public class Alpacapaca : MonoBehaviour
         for (int i = 0; i < number; i++)
         {
             Instantiate(leftBullet, startPos, quaternion.Euler(Vector3.zero));
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(bulletTime);
         }
 
         FrameRateBullet[] _bullets = FindObjectsByType<FrameRateBullet>(FindObjectsSortMode.None);
