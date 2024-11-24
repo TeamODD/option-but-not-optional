@@ -34,6 +34,8 @@ public class FrameRateBullet : MonoBehaviour
                 break;
         }
 
+        GameObject alpacapaca = GameObject.Find("alpacapaca");
+        startPos = alpacapaca.transform.position - new Vector3(0.7f, 0.48f, 0);
     }
 
     private void Start()

@@ -10,10 +10,11 @@ public class Alpacapaca : MonoBehaviour
     [Header("발사할 총알 수")] public int bulletNumber;
     private List<GameObject> bullets;
 
-    private Vector3 startPos = new Vector3(3.69f, -1.27f, 0);
+    private Vector3 startPos;
 
     private void Start()
     {
+        startPos = this.transform.position - new Vector3(0.7f, 0.48f, 0);
         StartCoroutine(FireNBullet(bulletNumber));
     }
 
