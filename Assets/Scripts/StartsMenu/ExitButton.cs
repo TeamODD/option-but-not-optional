@@ -15,27 +15,19 @@ public class ExitButton : MonoBehaviour
 
     private SpriteRenderer _renderer;
 
-    [RuntimeInitializeOnLoadMethod]
-    private static void Initialize()
-    {
-        var exitButton = FindFirstObjectByType<ExitButton>();
-        if (exitButton == null)
-        {
-            return;
-        }
-
-        exitButton._renderer = exitButton.GetComponent<SpriteRenderer>();
-    }
-
     [Header("텍스트 컬러")]
     private Color bColor = new Color(0, 0, 0, 255);
     private Color aColor = new Color(80f / 255f, 80f / 255f, 80f / 255f, 255);
 
-    private void Start()
+    private void Awake()
     {
         text = this.transform.Find("Text").gameObject;
-        tmp_text = text.GetComponent<TMP_Text>();
+        _renderer = this.GetComponent<SpriteRenderer>();
+    }
 
+    private void Start()
+    {
+        tmp_text = text.GetComponent<TMP_Text>();
         _renderer.sprite = BC;
         tmp_text.color = bColor;
     }
