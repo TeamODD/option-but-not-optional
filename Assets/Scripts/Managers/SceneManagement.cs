@@ -1,3 +1,4 @@
+using Player;
 using Settings;
 using StageActions;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Managers
 {
     public class SceneManagement : MonoBehaviour
     {
+        [SerializeField] private GameObject Canvas;
         public StageActionSo[] stageActions;
         [SerializeField] private GameObject player;
         [SerializeField] private SliderController[] sliders;
@@ -29,7 +31,7 @@ namespace Managers
             }
         }
 
-        private void ResetPlayerSize()
+        private void InitializePlayer()
         {
             if (player != null)
             {
@@ -49,6 +51,18 @@ namespace Managers
             {
                 return;
             }
+
+            if (SceneManager.GetActiveScene().name == "Scene7")
+            {
+                PlayerController.movePower = 3f;
+            }
+
+            if (SceneManager.GetActiveScene().name == "Scene11")
+            {
+                Destroy(Canvas);
+                Destroy(player);
+            }
+
 
             var currentStageAction = stageActions[_currentStageIndex];
 
@@ -91,6 +105,10 @@ namespace Managers
             }
 
             var stageIndex = _currentStageIndex + 1;
+            if (stageIndex == 12)
+            {
+                //DonDestroyManager.ClearAll();
+            }
 
             SceneManager.LoadScene($"Scene{stageIndex}");
 
@@ -102,7 +120,7 @@ namespace Managers
             Debug.LogWarning("OnSceneLoaded");
 
             ApplyStageActions();
-            ResetPlayerSize();
+            InitializePlayer();
             Debug.Log($"{_currentStageIndex}stage is Loaded");
 
             // Instantiate(player, playerPos, Quaternion.identity); 소환안하고 그냥 위치만 바꿈. 

@@ -6,7 +6,7 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         private static PlayerController _instance;
-        [Header("이동 값")] [SerializeField] private float movePower = 3f;
+        [Header("이동 값")] public static float movePower = 3f;
 
         [SerializeField] private float jumpPower = 10f;
 

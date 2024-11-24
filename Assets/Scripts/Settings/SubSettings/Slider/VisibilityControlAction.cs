@@ -10,8 +10,9 @@ namespace Settings.SubSettings.Slider
             var _nextStage = GameObject.FindGameObjectWithTag("NextStage");
             if (_nextStage != null)
             {
-                _nextStage.transform.position -= new Vector3(15 * value, 0, 0);
+                _nextStage.transform.position -= new Vector3(0.5f * value, 0, 0);
                 Debug.Log("GotoNextStage!");
+                //SceneManager.LoadScene("Scene11");
             }
             else
             {
